@@ -6,7 +6,7 @@
  * @version    0.1
  * @author ander_frago@cuatrovientos.org
  */
-  include 'header.php';
+  include '../Temples/header.php';
 ?>
     <div class="jumbotron jumbotron-fluid">
         <div id="bienvenida" class="container">       

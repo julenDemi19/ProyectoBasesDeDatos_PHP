@@ -7,9 +7,12 @@
  *
  * @author ander_frago@cuatrovientos.org
  */
+require_once '../Persistance/functions.php';
+include '../Persistance/functions.php';
 
-require_once 'header.php'; 
+require_once '../Temples/header.php'; 
 $error = $user = $pass = "";
+
 // Al pulsar el boton del formulario se recarga la misma página, volviendo a ejecutar este script.
 // En caso de que se haya  completado los valores del formulario se verifica la existencia de usuarios en la base de datos
 // para los valores introducidos.
@@ -49,7 +52,7 @@ if (isset($_POST['user']))
         
       // En caso de un registro  exitoso 
       // La gestión de usuario en la página principal se hace a través de la variable de sesión
-      header('Location: index.php');
+      header('Location: ../App/index.php');
     }
   }
 }
@@ -59,14 +62,14 @@ if (isset($_POST['user']))
 // analizamos si hay variable de sesión almacenada.
 else if (isset($_SESSION['user'])){
     // En caso de que exista variable de sesión redireccionamos a la página principal
-     header('Location: index.php'); 
+     header('Location: ../App/index.php'); 
 }
 
   
  
 ?>
 <div class="container">
-  <form class="form-horizontal" role="form" method="POST" action="login.php">
+  <form class="form-horizontal" role="form" method="POST" action="../App/login.php">
           <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6">

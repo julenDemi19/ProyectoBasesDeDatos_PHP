@@ -13,24 +13,12 @@ session_start([
 ]);
 
 // Realizando la llamada al script functions establezco la conexión con base de datos
-require_once 'utils/functions.php';
+require_once '../Persistance/functions.php';
+include '../utils/SessionHelper.php';
+destruirSesionPorInactividad();
 $userstr = ' (Invitado)';
 // Gestión de la sesión de usuario
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-    // last request was more than 30 minutes ago
-    session_unset();     // unset $_SESSION variable for the run-time 
-    session_destroy();   // destroy session data in storage
-}
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
-    $loggedin = TRUE;
-    $userstr = " ($user)";
-} else{
-    $loggedin = FALSE;
-   
-}
 ?>
 <html lang="es">
     <head>
@@ -39,7 +27,7 @@ if (isset($_SESSION['user'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css >
+        <link rel="stylesheet" href=..Assets/bootstrap.min.css >
     </head>
     <body>   
         <?php    
@@ -51,12 +39,12 @@ if (isset($_SESSION['user'])) {
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">4vSocial</a>
+                    <a class="navbar-brand" href="../App/index.php">4vSocial</a>
 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Salir</a>
+                            <a class="nav-link" href="../App/logout.php">Salir</a>
                         </li>
                       </ul>
                     </div>
@@ -71,18 +59,18 @@ if (isset($_SESSION['user'])) {
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">4vSocial</a>
+                    <a class="navbar-brand" href="../App/index.php">4vSocial</a>
 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                          <li class="nav-item">
-                              <a class="nav-link" href="signup.php">Registrarse</a>
+                              <a class="nav-link" href="../App/signup.php">Registrarse</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="login.php">Entrar</a>
+                              <a class="nav-link" href="../App/login.php">Entrar</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="logout.php">Salir</a>
+                              <a class="nav-link" href="../App/logout.php">Salir</a>
                           </li>
                       </ul>
                       <form class="form-inline my-2 my-lg-0">
@@ -98,4 +86,4 @@ if (isset($_SESSION['user'])) {
 ================================================== -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="../Assets/bootstrap.min.js"></script>

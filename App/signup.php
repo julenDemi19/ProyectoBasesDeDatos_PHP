@@ -7,23 +7,21 @@
  *
  * @author ander_frago@cuatrovientos.org
  */
-
-require_once 'header.php';
+require '../Persistance/functions.php';
+require_once  '../Temples/header.php';
 
 $error = $user = $pass = "";
 
 if (isset($_POST['email'])) {
 
   // TODO Realiza la lectura de los campos del formulario en $user y $pass
-  if (session_status() == PHP_SESSION_NONE){
-    session_start();
-
-  }
+  CrearSessionSiNoHay($_POST['email']);
  
   $user= $_POST['email'];
   $pass= $_POST['password'];
   $_SESSION["emailuserSes"]=$user;
   $_SESSION["passUserSes"]=$pass;
+
 
   // $user=""
   // $pass=""

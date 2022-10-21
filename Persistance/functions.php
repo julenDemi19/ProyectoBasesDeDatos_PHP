@@ -6,11 +6,13 @@
  * @version    0.1
  * @author ander_frago@cuatrovientos.org
  */
+$datos_json = file_get_contents('./conf/credentials.json');
+$datosMostrar_json = json_decode($datos_json, false);
 
-$dbhost  = 'localhost';    // Probablemente no necesite modificación
-$dbname  = 'proy1v1procesoregistro';   // Modificar esto..
-$dbuser  = 'root';   // ...las variables según
-$dbpass  = '';   // ...tu instalación
+$dbhost  = $datosMostrar_json->dbhost;    // Probablemente no necesite modificación
+$dbname  = $datosMostrar_json->dbname;   // Modificar esto..
+$dbuser  = $datosMostrar_json->dbuser;   // ...las variables según
+$dbpass  = $datosMostrar_json->dbpass;   // ...tu instalación
 $appname = "Artean"; // ...y configuración
 
 // Cuando se llama a este script se realiza la conexión con la base de datos

@@ -6,8 +6,10 @@
  * @version    0.1
  * @author ander_frago@cuatrovientos.org
  */
-
-  require_once 'header.php';
+  include '../Persistance/functions.php';
+  require_once '../Temples/header.php';
+  require '../Persistance/functions.php';
+  require '../utils/SessionHelper.php';
 
   if (isset($_SESSION['user']))
   {
